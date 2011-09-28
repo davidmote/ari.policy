@@ -1,55 +1,29 @@
-import unittest
+import unittest2 as unittest
+from ari.policy.testing import ARI_POLICY_INTEGRATION_TESTING
+from plone.app.testing import applyProfile
 
-#from zope.testing import doctestunit
-#from zope.component import testing
-from Testing import ZopeTestCase as ztc
+from Products.CMFCore.utils import getToolByName
 
-from Products.Five import fiveconfigure
-from Products.PloneTestCase import PloneTestCase as ptc
-from Products.PloneTestCase.layer import PloneSite
-ptc.setupPloneSite()
+class TestSetup(unittest.TestCase):
+    
+    layer = ARI_POLICY_INTEGRATION_TESTING
 
-import ari.policy
+    def test_theme_installed(self):
+        portal = self.layer['portal']
+        quickinstaller = getToolByName(portal, 'portal_quickinstaller')
+        self.assertTrue(quickinstaller.isProductInstalled('avrc.ari.theme'))        
 
+    def test_indexing_installed(self):
+        portal = self.layer['portal']
+        quickinstaller = getToolByName(portal, 'portal_quickinstaller')
+        self.assertTrue(quickinstaller.isProductInstalled('collective.indexing'))        
 
-class TestCase(ptc.PloneTestCase):
+    def test_datepicker_installed(self):
+        portal = self.layer['portal']
+        quickinstaller = getToolByName(portal, 'portal_quickinstaller')
+        self.assertTrue(quickinstaller.isProductInstalled('jyu.z3cform.datepicker'))     
 
-    class layer(PloneSite):
-
-        @classmethod
-        def setUp(cls):
-            fiveconfigure.debug_mode = True
-            ztc.installPackage(ari.policy)
-            fiveconfigure.debug_mode = False
-
-        @classmethod
-        def tearDown(cls):
-            pass
-
-
-def test_suite():
-    return unittest.TestSuite([
-
-        # Unit tests
-        #doctestunit.DocFileSuite(
-        #    'README.txt', package='leadtheway.policy',
-        #    setUp=testing.setUp, tearDown=testing.tearDown),
-
-        #doctestunit.DocTestSuite(
-        #    module='leadtheway.policy.mymodule',
-        #    setUp=testing.setUp, tearDown=testing.tearDown),
-
-
-        # Integration tests that use PloneTestCase
-        #ztc.ZopeDocFileSuite(
-        #    'README.txt', package='leadtheway.policy',
-        #    test_class=TestCase),
-
-        #ztc.FunctionalDocFileSuite(
-        #    'browser.txt', package='leadtheway.policy',
-        #    test_class=TestCase),
-
-        ])
-
-if __name__ == '__main__':
-    unittest.main(defaultTest='test_suite')
+    def test_formgen_installed(self):
+        portal = self.layer['portal']
+        quickinstaller = getToolByName(portal, 'portal_quickinstaller')
+        self.assertTrue(quickinstaller.isProductInstalled('Products.PloneFormGen'))   

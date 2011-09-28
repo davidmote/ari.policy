@@ -27,15 +27,20 @@ setup(name='ari.policy',
       install_requires=[
           'setuptools',
           'Plone',
-          'avrc.ari.theme',
+          'PIL',
+          'plone.app.caching',
           'collective.uploadify',
           'collective.indexing',
           'jyu.z3cform.datepicker',    
           'beast.cache',
           'plone.app.ldap',
           'Products.PloneFormGen',
+          'avrc.ari.theme',
           # -*- Extra requirements: -*-
       ],
+    extras_require=dict(
+        test=['plone.app.testing'],
+        ),
       entry_points="""
       # -*- Entry points: -*-
 
