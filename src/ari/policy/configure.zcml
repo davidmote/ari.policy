@@ -9,9 +9,9 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="ari.policy"
+      title="ARI Site Policy"
       directory="profiles/default"
-      description="Installs the ari.policy package"
+      description="Installs the ARI Site policy package"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
