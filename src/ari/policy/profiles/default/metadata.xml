@@ -5,6 +5,7 @@
     <dependency>profile-avrc.ari.theme:default</dependency> 
     <dependency>profile-collective.indexing:default</dependency>
     <dependency>profile-jyu.z3cform.datepicker:default</dependency>
+    <dependency>profile-beast.securelogin:default</dependency>
     <dependency>profile-plone.app.ldap:default</dependency>
     <dependency>profile-plone.app.caching:default</dependency>
   </dependencies>

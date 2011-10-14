@@ -24,14 +24,14 @@ setup(
     install_requires=[
         'setuptools',
         'Plone',
-        'PIL',
+        'Pillow',
         'plone.app.caching',
         'plone.app.ldap',
         'collective.uploadify',
         'collective.indexing',
         'jyu.z3cform.datepicker',
         'Products.PloneFormGen',
-
+        'beast.securelogin',
         'avrc.ari.theme',
         ],
     extras_require=dict(
