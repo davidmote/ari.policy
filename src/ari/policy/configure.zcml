@@ -9,21 +9,11 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="ari.policy"
+      title="ARI Site Policy"
       directory="profiles/default"
-      description="Installs the ari.policy package"
+      description="Installs the ARI Site policy package"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
-
-<!--
-  <genericsetup:importStep
-      name="leadtheway-various"
-      title="Additional leadtheway site policy setup"
-      description="leadtheway site policy configuration"
-      handler="leadtheway.policy.setuphandlers.importVarious">
-    <depends name="rolemap"/>
-  </genericsetup:importStep>
--->
 
   <!-- -*- extra stuff goes here -*- -->
   
